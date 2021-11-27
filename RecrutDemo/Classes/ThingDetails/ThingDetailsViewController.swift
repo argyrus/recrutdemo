@@ -7,11 +7,7 @@ class ThingDetailsViewController: UIViewController {
     var thingModel: ThingModel!
     var imageProvider: ImageProvider!
     var delegate: ThingDetailsDelegate? = nil
-    
-    convenience init() {
-        self.init(nibName: nil, bundle: nil)
-    }
-    
+
     override func loadView() {
         
         view = baseView
