@@ -9,14 +9,13 @@ class ThingDetailsViewController: UIViewController {
     var delegate: ThingDetailsDelegate? = nil
 
     override func loadView() {
-        
         view = baseView
         view.backgroundColor = UIColor.white
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+
         title = thingModel.name
         
         baseView.likeButton.addTarget(self, action: #selector(didTapLikeButton), for: .touchUpInside)

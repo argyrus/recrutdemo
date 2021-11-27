@@ -33,8 +33,8 @@ class ThingDetailsView: UIView {
     }
     
     override func updateConstraints() {
-        setupConstraints()
         super.updateConstraints()
+        setupConstraints()
     }
     
     private func setupConstraints() {

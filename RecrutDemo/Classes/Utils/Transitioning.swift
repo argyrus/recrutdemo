@@ -11,27 +11,31 @@ extension Transition where Self: UIViewController {
     
     func pushViewControler(_ viewControler: UIViewController, animated: Bool) {
         
-        let transition = CATransition()
-        transition.type = CATransitionType.push
-        addChild(viewController: viewControler, to: self, with: self.view.bounds, animated: animated)
-        viewControler.view.layer.add(transition, forKey: nil)
+        self.navigationController?.pushViewController(viewControler, animated: true)
+        
+//        let transition = CATransition()
+//        transition.type = CATransitionType.push
+//        addChild(viewController: viewControler, to: self, with: self.view.bounds, animated: animated)
+//        viewControler.view.layer.add(transition, forKey: nil)
     }
     
     func popViewController(_ viewController: UIViewController, animated: Bool) {
-        
-        CATransaction.begin()
-        
-        CATransaction.setCompletionBlock { 
-            //self.removeChild(viewController: viewController.navigationController!, animated: true)
-        }
-        
-        let transition = CATransition()
-        transition.type = CATransitionType.push
-        viewController.navigationController!.view.layer.add(transition, forKey: nil)
-        
-        self.removeChild(viewController: viewController.navigationController!, animated: true)
-        
-        CATransaction.commit()
+
+        self.navigationController?.popViewController(animated: true)
+        //
+//        CATransaction.begin()
+//
+//        CATransaction.setCompletionBlock {
+//            //self.removeChild(viewController: viewController.navigationController!, animated: true)
+//        }
+//
+//        let transition = CATransition()
+//        transition.type = CATransitionType.push
+//        viewController.navigationController!.view.layer.add(transition, forKey: nil)
+//
+//        self.removeChild(viewController: viewController.navigationController!, animated: true)
+//
+//        CATransaction.commit()
     }
     
     private func addChild(viewController: UIViewController, to parentViewController: UIViewController, with frame: CGRect, animated: Bool) {

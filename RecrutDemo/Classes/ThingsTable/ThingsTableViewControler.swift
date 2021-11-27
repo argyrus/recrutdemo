@@ -12,10 +12,6 @@ class ThingsTableViewControler: UITableViewController, Transition {
     
     var viewModel = ThingsTableViewModel()
     
-    convenience init() {
-        self.init(nibName: nil, bundle: nil)
-    }
-    
     override func loadView() {
         super.loadView()
     }
@@ -68,8 +64,7 @@ class ThingsTableViewControler: UITableViewController, Transition {
         detailsViewController.thingModel = thingModel
         detailsViewController.imageProvider = viewModel.imageProvider
         detailsViewController.delegate = self
-        let navigationContorller = UINavigationController(rootViewController: detailsViewController)
-        pushViewControler(navigationContorller, animated: true)
+        pushViewControler(detailsViewController, animated: true)
     }
 }
 
