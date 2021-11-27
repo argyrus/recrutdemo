@@ -22,7 +22,7 @@ class ThingsTableViewControler: UITableViewController, Transition {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = "List"
         tableView.estimatedRowHeight = TableViewConstants.estimatedRowHeight
         tableView.rowHeight = TableViewConstants.rowHeight
         tableView.separatorColor = UIColor.black
