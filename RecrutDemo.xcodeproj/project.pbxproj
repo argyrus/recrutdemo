@@ -21,9 +21,7 @@
 		6351D44D1E695A920006327A /* ThingDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351D44B1E695A920006327A /* ThingDetailsView.swift */; };
 		6351D44E1E695A920006327A /* ThingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351D44C1E695A920006327A /* ThingDetailsViewController.swift */; };
 		6351D4531E695ACA0006327A /* Transitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351D4521E695ACA0006327A /* Transitioning.swift */; };
-		6364A2ED1DEE25A0007461E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6364A2E71DEE25A0007461E4 /* LaunchScreen.storyboard */; };
 		6364A2EE1DEE25A0007461E4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6364A2E91DEE25A0007461E4 /* Localizable.strings */; };
-		6364A2EF1DEE25A0007461E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6364A2EB1DEE25A0007461E4 /* Main.storyboard */; };
 		63BF73ED1D6446BC00114782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BF73EC1D6446BC00114782 /* AppDelegate.swift */; };
 		63BF73F21D6446BC00114782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63BF73F01D6446BC00114782 /* Main.storyboard */; };
 		63BF73F71D6446BC00114782 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63BF73F61D6446BC00114782 /* Assets.xcassets */; };
@@ -348,8 +346,6 @@
 				6351D4411E6853650006327A /* entities.json in Resources */,
 				63BF73FA1D6446BC00114782 /* LaunchScreen.storyboard in Resources */,
 				6364A2EE1DEE25A0007461E4 /* Localizable.strings in Resources */,
-				6364A2EF1DEE25A0007461E4 /* Main.storyboard in Resources */,
-				6364A2ED1DEE25A0007461E4 /* LaunchScreen.storyboard in Resources */,
 				63BF73F71D6446BC00114782 /* Assets.xcassets in Resources */,
 				63BF73F21D6446BC00114782 /* Main.storyboard in Resources */,
 			);

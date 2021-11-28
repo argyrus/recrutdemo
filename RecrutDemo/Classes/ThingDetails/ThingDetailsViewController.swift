@@ -25,9 +25,9 @@ class ThingDetailsViewController: UIViewController {
         displayImage()
     }
     
-    deinit {
-        print("\(self) released")
-    }
+//    deinit {
+//        print("\(self) released")
+//    }
     
     @objc func didTapCloseButton() {
         delegate?.thingDetails(viewController: self, willDismiss: thingModel!)
