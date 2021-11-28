@@ -16,7 +16,7 @@ class ThingCell: UITableViewCell {
     
     let background = UIView(frame: .zero)
     var updateThingImage: ((UIImage?) -> (Void)) = { _ in }
-   
+    
     var isLiked: Bool? = false {
         willSet {
             self.updateLikeImage(check: newValue)
@@ -30,7 +30,7 @@ class ThingCell: UITableViewCell {
         contentView.addSubview(background)
         
         thingImage.contentMode = .scaleAspectFit
-  
+        
         contentView.backgroundColor = UIColor.clear
         backgroundColor = UIColor.clear
         contentView.addSubview(nameLabel)
@@ -41,9 +41,9 @@ class ThingCell: UITableViewCell {
     
     convenience init() {
         self.init(style: .default, reuseIdentifier: "")
-
+        
         nameLabel.text = "Undefined thing name"
- 
+        
         updateThingImage = { image in
             self.change(image: image, in: self.thingImage)
         }
@@ -54,7 +54,7 @@ class ThingCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
-    
+        super.layoutSubviews()
         let origin = CGPoint(x: 80.0, y: 0)
         let size = CGSize(width: bounds.width - origin.x, height: bounds.height)
         nameLabel.frame = CGRect(origin: origin, size: size)
@@ -85,16 +85,16 @@ class ThingCell: UITableViewCell {
         isLiked = withLikeValue
     }
     
-//    func animateAlphaLikeImage() {
-//        
-//        likeImage.alpha = 0.0
-//        UIView.animate(withDuration: 0.5) { 
-//            self.likeImage.alpha = 1.0
-//        }
-//    }
+    //    func animateAlphaLikeImage() {
+    //
+    //        likeImage.alpha = 0.0
+    //        UIView.animate(withDuration: 0.5) {
+    //            self.likeImage.alpha = 1.0
+    //        }
+    //    }
     
     func setLikeImageWithAnimation(image: UIImage) {
-
+        
         change(image: image, in: likeImage)
     }
     
@@ -114,7 +114,7 @@ class ThingCell: UITableViewCell {
         transition.duration = 0.8
         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
         transition.type = CATransitionType.fade
-    
+        
         imageView.image = image
         imageView.layer.add(transition, forKey: nil)
     }
