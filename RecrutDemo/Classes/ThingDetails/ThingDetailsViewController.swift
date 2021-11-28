@@ -9,6 +9,7 @@ class ThingDetailsViewController: UIViewController {
     var delegate: ThingDetailsDelegate? = nil
     
     override func loadView() {
+        super.loadView()
         view = baseView
         view.backgroundColor = UIColor.white
     }
