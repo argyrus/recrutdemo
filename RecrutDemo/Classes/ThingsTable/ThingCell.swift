@@ -82,7 +82,6 @@ class ThingCell: UITableViewCell {
     }
     
     func update(withLikeValue: Bool?) {
-        print("asdf",withLikeValue)
         isLiked = withLikeValue
     }
     

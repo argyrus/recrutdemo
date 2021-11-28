@@ -25,18 +25,12 @@ class ThingDetailsView: UIView {
         
         buttons.axis = .horizontal
         buttons.alignment = .center
-        buttons.distribution = .equalSpacing
+        buttons.distribution = .fillEqually
         buttons.spacing = 10.0
         addSubview(buttons)
-        
-        setNeedsUpdateConstraints()
-    }
-    
-    override func updateConstraints() {
-        super.updateConstraints()
         setupConstraints()
     }
-    
+
     private func setupConstraints() {
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -44,16 +38,16 @@ class ThingDetailsView: UIView {
         dislikeButton.translatesAutoresizingMaskIntoConstraints = false
         buttons.translatesAutoresizingMaskIntoConstraints = false
         
-        let padding: CGFloat = 20.0
         let imageSize: CGFloat = 300.0
         imageView.topAnchor.constraint(equalTo: topAnchor, constant: 100.0).isActive = true
-        imageView.leftAnchor.constraint(equalTo: leftAnchor, constant: padding).isActive = true
-        imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding).isActive = true
+        imageView.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 0.0).isActive = true
+
         imageView.heightAnchor.constraint(equalToConstant: imageSize).isActive = true
         imageView.widthAnchor.constraint(equalToConstant: imageSize).isActive = true
+       
         
         let buttonSize: CGFloat = 50.0
-        buttons.widthAnchor.constraint(equalToConstant: 120).isActive = true
+       
         likeButton.heightAnchor.constraint(equalToConstant: buttonSize).isActive = true
         likeButton.widthAnchor.constraint(equalToConstant: buttonSize).isActive = true
         
@@ -62,6 +56,7 @@ class ThingDetailsView: UIView {
         
         buttons.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 30).isActive = true
         buttons.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 0.0).isActive = true
+        layoutIfNeeded()
     }
     
     func setThing(image: UIImage?) {
