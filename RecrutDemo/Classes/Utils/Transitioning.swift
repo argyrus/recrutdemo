@@ -67,7 +67,6 @@ protocol Navigation {
 extension Navigation where Self: UIViewController {
     
     func setup() {
-        
         let backArrow = #imageLiteral(resourceName: "backChevron").withRenderingMode(.alwaysTemplate)
         let backButton = UIBarButtonItem(image: backArrow, style: .plain, target: self, action: #selector(ThingDetailsViewController.didTapCloseButton))
         self.navigationItem.leftBarButtonItem = backButton

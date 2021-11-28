@@ -14,10 +14,10 @@ class ThingCell: UITableViewCell {
         return label
     }()
     
-    let background = UIView(frame: .zero)
+    private let background = UIView(frame: .zero)
     var updateThingImage: ((UIImage?) -> (Void)) = { _ in }
     
-    var isLiked: Bool? = false {
+    private var isLiked: Bool? = false {
         willSet {
             self.updateLikeImage(check: newValue)
         }
@@ -70,7 +70,7 @@ class ThingCell: UITableViewCell {
         background.frame = bounds
     }
     
-    func setupImageView() {
+    private func setupImageView() {
         
         thingImage.backgroundColor = UIColor.clear
         thingImage.layer.masksToBounds = true
@@ -85,15 +85,7 @@ class ThingCell: UITableViewCell {
         isLiked = withLikeValue
     }
     
-    //    func animateAlphaLikeImage() {
-    //
-    //        likeImage.alpha = 0.0
-    //        UIView.animate(withDuration: 0.5) {
-    //            self.likeImage.alpha = 1.0
-    //        }
-    //    }
-    
-    func setLikeImageWithAnimation(image: UIImage) {
+    private func setLikeImageWithAnimation(image: UIImage) {
         
         change(image: image, in: likeImage)
     }
@@ -131,18 +123,3 @@ class ThingCell: UITableViewCell {
         thingImage.layer.shadowRadius = 2.0
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

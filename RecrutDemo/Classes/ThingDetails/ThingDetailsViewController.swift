@@ -7,7 +7,7 @@ class ThingDetailsViewController: UIViewController {
     var thingModel: ThingModel!
     var imageProvider: ImageProvider!
     var delegate: ThingDetailsDelegate? = nil
-
+    
     override func loadView() {
         view = baseView
         view.backgroundColor = UIColor.white
@@ -15,7 +15,7 @@ class ThingDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         title = thingModel.name
         
         baseView.likeButton.addTarget(self, action: #selector(didTapLikeButton), for: .touchUpInside)
@@ -24,20 +24,23 @@ class ThingDetailsViewController: UIViewController {
         displayImage()
     }
     
+    deinit {
+        print("\(self) released")
+    }
+    
     @objc func didTapCloseButton() {
         delegate?.thingDetails(viewController: self, willDismiss: thingModel!)
     }
     
-    @objc func didTapLikeButton() {
+    @objc private func didTapLikeButton() {
         delegate?.thingDetails(viewController: self, didLike: thingModel!)
     }
-    @objc
-    func didTapDislikeButton() {
+    
+    @objc private func didTapDislikeButton() {
         delegate?.thingDetails(viewController: self, didDislike: thingModel!)
     }
     
-    func displayImage() {
-        
+    private func displayImage() {
         if let urlString = thingModel.image {
             imageProvider.imageAsync(from: urlString, completion: { (image, imageUrl) in
                 self.baseView.setThing(image: image)

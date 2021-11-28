@@ -3,14 +3,14 @@ import UIKit
 
 class ThingsTableViewControler: UITableViewController, Transition {
     
-    struct TableViewConstants {
+    private struct TableViewConstants {
         
         static let cellIdentifier = "Cell"
         static let rowHeight: CGFloat = 60
         static let estimatedRowHeight: CGFloat = 180
     }
     
-    var viewModel = ThingsTableViewModel()
+    private var viewModel = ThingsTableViewModel()
     
     override func loadView() {
         super.loadView()
@@ -31,24 +31,22 @@ class ThingsTableViewControler: UITableViewController, Transition {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var cell: ThingCell? = tableView.dequeueReusableCell(withIdentifier: TableViewConstants.cellIdentifier) as? ThingCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewConstants.cellIdentifier, for: indexPath) as! ThingCell
         
-        if cell == nil {
-            cell = ThingCell()
-        }
-        viewModel.bindModelWithView(cell: cell!, at: indexPath)
+        
+        viewModel.bindModelWithView(cell: cell, at: indexPath)
         
         let thingModel = viewModel.thing(for: indexPath)
-        cell?.update(withText: thingModel.name)
-        cell?.update(withLikeValue: thingModel.like)
+        cell.update(withText: thingModel.name)
+        cell.update(withLikeValue: thingModel.like)
         
         if let urlString = thingModel.image {
             viewModel.imageProvider.imageAsync(from: urlString, completion: { (image, imageUrl) in
-                cell?.updateThingImage(image)
+                cell.updateThingImage(image)
             })
         }
         
-        return cell!
+        return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -58,7 +56,7 @@ class ThingsTableViewControler: UITableViewController, Transition {
         pushDetailsViewController(thingModel)
     }
     
-    func pushDetailsViewController(_ thingModel: ThingModel) {
+    private func pushDetailsViewController(_ thingModel: ThingModel) {
         
         let detailsViewController = ThingDetailsViewController()
         detailsViewController.thingModel = thingModel
@@ -69,7 +67,7 @@ class ThingsTableViewControler: UITableViewController, Transition {
 }
 
 extension ThingsTableViewControler: ThingDetailsDelegate {
-
+    
     func thingDetails(viewController: ThingDetailsViewController, didLike thingModel: ThingModel) {
         
         thingModel.like = true
@@ -88,73 +86,3 @@ extension ThingsTableViewControler: ThingDetailsDelegate {
         popViewController(viewController, animated: true)
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

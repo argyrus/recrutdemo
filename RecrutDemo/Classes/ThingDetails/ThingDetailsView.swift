@@ -30,7 +30,7 @@ class ThingDetailsView: UIView {
         addSubview(buttons)
         setupConstraints()
     }
-
+    
     private func setupConstraints() {
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -41,13 +41,13 @@ class ThingDetailsView: UIView {
         let imageSize: CGFloat = 300.0
         imageView.topAnchor.constraint(equalTo: topAnchor, constant: 100.0).isActive = true
         imageView.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 0.0).isActive = true
-
+        
         imageView.heightAnchor.constraint(equalToConstant: imageSize).isActive = true
         imageView.widthAnchor.constraint(equalToConstant: imageSize).isActive = true
-       
+        
         
         let buttonSize: CGFloat = 50.0
-       
+        
         likeButton.heightAnchor.constraint(equalToConstant: buttonSize).isActive = true
         likeButton.widthAnchor.constraint(equalToConstant: buttonSize).isActive = true
         
@@ -63,22 +63,3 @@ class ThingDetailsView: UIView {
         imageView.image = image
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
