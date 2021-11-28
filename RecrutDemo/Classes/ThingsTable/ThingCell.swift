@@ -7,7 +7,6 @@ class ThingCell: UITableViewCell {
     private let thingImage = UIImageView()
     private let likeImage = UIImageView()
     private lazy var nameLabel: UILabel = {
-        
         let label = UILabel()
         label.textColor = UIColor.black
         label.backgroundColor = UIColor.clear
@@ -17,8 +16,8 @@ class ThingCell: UITableViewCell {
     
     let background = UIView(frame: .zero)
     var updateThingImage: ((UIImage?) -> (Void)) = { _ in }
+   
     var isLiked: Bool? = false {
-        
         willSet {
             self.updateLikeImage(check: newValue)
         }
@@ -56,7 +55,7 @@ class ThingCell: UITableViewCell {
     
     override func layoutSubviews() {
     
-        let origin = CGPoint(x: 80.0, y: 10.5)
+        let origin = CGPoint(x: 80.0, y: 0)
         let size = CGSize(width: bounds.width - origin.x, height: bounds.height)
         nameLabel.frame = CGRect(origin: origin, size: size)
         
@@ -83,6 +82,7 @@ class ThingCell: UITableViewCell {
     }
     
     func update(withLikeValue: Bool?) {
+        print("asdf",withLikeValue)
         isLiked = withLikeValue
     }
     
