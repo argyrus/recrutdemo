@@ -25,15 +25,15 @@ class ThingDetailsViewController: UIViewController {
     }
     
     @objc func didTapCloseButton() {
-        delegate?.thingDetails(viewController: self, willDismiss: &thingModel!)
+        delegate?.thingDetails(viewController: self, willDismiss: thingModel!)
     }
     
     @objc func didTapLikeButton() {
-        delegate?.thingDetails(viewController: self, didLike: &thingModel!)
+        delegate?.thingDetails(viewController: self, didLike: thingModel!)
     }
     @objc
     func didTapDislikeButton() {
-        delegate?.thingDetails(viewController: self, didDislike: &thingModel!)
+        delegate?.thingDetails(viewController: self, didDislike: thingModel!)
     }
     
     func displayImage() {

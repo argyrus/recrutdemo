@@ -70,21 +70,21 @@ class ThingsTableViewControler: UITableViewController, Transition {
 
 extension ThingsTableViewControler: ThingDetailsDelegate {
 
-    func thingDetails(viewController: ThingDetailsViewController, didLike thingModel: inout ThingModel) {
+    func thingDetails(viewController: ThingDetailsViewController, didLike thingModel: ThingModel) {
         
         thingModel.like = true
         thingModel.setLike(value: true)
         popViewController(viewController, animated: true)
     }
     
-    func thingDetails(viewController: ThingDetailsViewController, didDislike thingModel: inout ThingModel) {
+    func thingDetails(viewController: ThingDetailsViewController, didDislike thingModel: ThingModel) {
         
         thingModel.like = false
         thingModel.setLike(value: false)
         popViewController(viewController, animated: true)
     }
     
-    func thingDetails(viewController: ThingDetailsViewController, willDismiss thingModel: inout ThingModel) {
+    func thingDetails(viewController: ThingDetailsViewController, willDismiss thingModel: ThingModel) {
         popViewController(viewController, animated: true)
     }
 }
