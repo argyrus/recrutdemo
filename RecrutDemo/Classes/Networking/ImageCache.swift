@@ -8,6 +8,7 @@ class ImageCache {
     var cacheSize = 70
     
     private var localCache = Dictionary<String, UIImage>()
+   
     private func moveImage(from: URL, to destinationURL: URL) -> String? {
         
         do {
@@ -74,7 +75,25 @@ class ImageCache {
         guard let imagePath = moveImage(from: location, to: destination) else {
             return nil
         }
-        return UIImage(contentsOfFile: imagePath)
+        if let img = UIImage(contentsOfFile: imagePath) {
+            save(image: img, to: destination)
+            storeImageLocally(image: img, key: imageName)
+            return img
+        }
+        return nil
+    }
+    
+    func fetchImageFromCache(for imageName: String) -> UIImage? {
+
+        let destination = destinationURL(for: imageName)
+
+        if let imgFromLocalCache = localCache[imageName] {
+            return imgFromLocalCache
+        }
+        else if let imgFromDocumentsDirectory = UIImage(contentsOfFile: destination.path) {
+            return imgFromDocumentsDirectory
+        }
+        return nil
     }
 }
 

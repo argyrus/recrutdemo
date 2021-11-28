@@ -32,14 +32,19 @@ class ImageProvider {
             })
         }
     }
-
+    
     private func downloadImage(from url: URL, saveAs imageName: String, completion: DownloadCompletion) {
+        
+        if let image = self.cache.fetchImageFromCache(for: imageName) {
+            completion?(image, url.absoluteString)
+            return
+        }
+        
         
         networkLayer.downloadFile(from: url, completion: { (locationURL, response, error) in
             
             let urlString = url.absoluteString
             guard let location = locationURL else {
-                
                 completion?(nil, urlString)
                 return
             }
@@ -59,27 +64,4 @@ class ImageProvider {
         return imageName
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
