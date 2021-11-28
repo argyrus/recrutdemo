@@ -117,9 +117,12 @@ class ThingCell: UITableViewCell {
         layer.shadowOffset = CGSize(width: 0.5, height: 1.0)
         layer.shadowOpacity = 0.5
         layer.shadowRadius = 1.0
-        
+        layer.shadowPath = UIBezierPath(rect: bounds).cgPath
+
         thingImage.layer.shadowOffset = CGSize(width: 0.5, height: 1.0)
         thingImage.layer.shadowOpacity = 0.3
         thingImage.layer.shadowRadius = 2.0
+        thingImage.layer.shadowPath = UIBezierPath(rect: thingImage.bounds).cgPath
+
     }
 }
