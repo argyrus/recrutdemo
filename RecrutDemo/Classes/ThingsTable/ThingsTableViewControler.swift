@@ -72,12 +72,14 @@ extension ThingsTableViewControler: ThingDetailsDelegate {
 
     func thingDetails(viewController: ThingDetailsViewController, didLike thingModel: inout ThingModel) {
         
+        thingModel.like = true
         thingModel.setLike(value: true)
         popViewController(viewController, animated: true)
     }
     
     func thingDetails(viewController: ThingDetailsViewController, didDislike thingModel: inout ThingModel) {
         
+        thingModel.like = false
         thingModel.setLike(value: false)
         popViewController(viewController, animated: true)
     }

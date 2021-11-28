@@ -30,13 +30,12 @@ struct ItemsDatasource {
                     let uuid = entityDict["uuid"] as! String
                     let name = entityDict["name"] as! String
                     
-                    var item = ThingModel(name: name)
+                    let item = ThingModel(name: name)
                     item.uuid = uuid
                     
                     let imageArray = entityDict["image"] as? Array<String>
                     let urlString = imageArray?.first
                     item.image = urlString
-                    print("\(item.name) \(urlString)")
                     allItems.append(item)
                 }
             }
