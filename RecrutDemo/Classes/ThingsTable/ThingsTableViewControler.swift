@@ -31,22 +31,23 @@ class ThingsTableViewControler: UITableViewController, Transition {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewConstants.cellIdentifier, for: indexPath) as! ThingCell
+        var cell: ThingCell? = tableView.dequeueReusableCell(withIdentifier: TableViewConstants.cellIdentifier) as? ThingCell
         
-        
-        viewModel.bindModelWithView(cell: cell, at: indexPath)
+        if cell == nil {
+            cell = ThingCell()
+        }
+        viewModel.bindModelWithView(cell: cell!, at: indexPath)
         
         let thingModel = viewModel.thing(for: indexPath)
-        cell.update(withText: thingModel.name)
-        cell.update(withLikeValue: thingModel.like)
+        cell?.update(withText: thingModel.name)
+        cell?.update(withLikeValue: thingModel.like)
         
         if let urlString = thingModel.image {
             viewModel.imageProvider.imageAsync(from: urlString, completion: { (image, imageUrl) in
-                cell.updateThingImage(image)
+                cell?.updateThingImage(image)
             })
         }
-        
-        return cell
+        return cell!
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
